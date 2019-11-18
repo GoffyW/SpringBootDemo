@@ -13,6 +13,7 @@ import java.util.List;
 public class BoysController {
     @Autowired
     private BoysMapper boysMapper;
+
     @RequestMapping("/queryBoysList")
     @ResponseBody
     public List<Boys> queryBoysList(){

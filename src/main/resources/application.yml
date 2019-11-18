@@ -1,13 +1,37 @@
 #对象的配置
 server:
   port: 8082
+spring:
+  profiles:
+    active:
+      - prod
 
-name: guofei
 
+---
+server:
+  port: 8083
+spring:
+  profiles: dev
+
+---
+server:
+  port: 8084
+spring:
+  profiles: prod
+---
 person:
-  name: jordan
-  age: 44
-  addr: UAS
+  lastName: jordan
+  age: 19
+  boss: false
+  birth: 2019/5/13
+  maps: {k1: v1,k2: v2}
+  lists:
+    - kobe
+    - yao
+  dog:
+    dogName: 小花
+    dogAge: 4
+
 
 #数据库配置
 spring:

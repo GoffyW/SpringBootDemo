@@ -30,6 +30,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!--导入配置文件处理器，配置文件进行绑定就会有提示-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <!--添加热部署依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
