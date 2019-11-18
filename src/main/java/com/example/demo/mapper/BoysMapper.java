@@ -5,6 +5,13 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 @Mapper
+/**
+ * @Author:Goffy
+ */
 public interface BoysMapper {
-    public List<Boys> queryBoysList();
+    /**
+     * 查询所有的男孩列表
+     * @return
+     */
+    List<Boys> queryBoysList();
 }

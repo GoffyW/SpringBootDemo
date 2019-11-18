@@ -9,11 +9,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * 男孩控制器类
+ * @Author:Goffy
+ */
 @Controller
 public class BoysController {
     @Autowired
     private BoysMapper boysMapper;
 
+    /**
+     * 查询所有的男孩
+     * @return
+     */
     @RequestMapping("/queryBoysList")
     @ResponseBody
     public List<Boys> queryBoysList(){
