@@ -22,7 +22,7 @@ public class RedisTest {
     private BoysMapper boysMapper;
     @Test
     public void testRedis() throws JsonProcessingException {
-        //1、从redis中获得数据数据的形式为json形式
+   /*     //1、从redis中获得数据数据的形式为json形式
         String boysListJson = redisTemplate.boundValueOps("boysListsRedis.findAll").get();
         //2、判断redis是否含有数据
         if (boysListJson == null) {
@@ -38,6 +38,6 @@ public class RedisTest {
             System.out.println("======从缓存中获得的数据======");
         }
         //4、将数据打印在控制台
-        System.out.println(boysListJson);
+        System.out.println(boysListJson);*/
     }
 }
