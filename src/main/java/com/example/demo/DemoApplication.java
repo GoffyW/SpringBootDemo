@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-@ComponentScan(basePackages = "com.example.demo.controller")
+@ComponentScan(basePackages = "com.example.demo")
 @SpringBootApplication
 @EnableScheduling
 public class DemoApplication {
