@@ -1,11 +1,13 @@
 package com.example.demo.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo.bean.Boys;
 import com.example.demo.mapper.BoysMapper;
+import com.example.demo.service.BoysService;
+import com.example.demo.service.UserService;
+import com.example.demo.utils.ResponseBO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,19 +15,37 @@ import java.util.List;
  * 男孩控制器类
  * @Author:Goffy
  */
-@Controller
+@RestController
 public class BoysController {
     @Autowired
-    private BoysMapper boysMapper;
+    private BoysService boysService;
+
+    @Autowired
+    private
+    UserService userService;
 
     /**
      * 查询所有的男孩
      * @return
      */
-    @RequestMapping("/queryBoysList")
-    @ResponseBody
+    @GetMapping("/queryBoysList")
     public List<Boys> queryBoysList(){
-        List<Boys> lists = boysMapper.queryBoysList();
+        List<Boys> lists = boysService.getAllBoys();
         return lists;
     }
+
+    /**
+     * 更新操作
+     * @param boy
+     * @return
+     */
+    @PostMapping("/update")
+    public ResponseBO updataBoys(@RequestBody JSONObject users){
+        int i = userService.updateUser(users);
+        if (i>0){
+            return ResponseBO.Builder.init().setCompleteCode(0).build();
+        }
+        return ResponseBO.responseFail("更新失败");
+    }
+
 }

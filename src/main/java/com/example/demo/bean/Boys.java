@@ -1,40 +1,51 @@
 package com.example.demo.bean;
 
-public class Boys {
-    private int u_id;
-    private  String boyName;
-    private  int userCP;
+import java.io.Serializable;
 
-    public int getU_id() {
-        return u_id;
+public class Boys implements Serializable {
+    private Integer uId;
+
+    private String boyname;
+
+    private Integer usercp;
+
+    private static final long serialVersionUID = 1L;
+
+    public Integer getuId() {
+        return uId;
     }
 
-    public void setU_id(int u_id) {
-        this.u_id = u_id;
+    public void setuId(Integer uId) {
+        this.uId = uId;
     }
 
-    public String getBoyName() {
-        return boyName;
+    public String getBoyname() {
+        return boyname;
     }
 
-    public void setBoyName(String boyName) {
-        this.boyName = boyName;
+    public void setBoyname(String boyname) {
+        this.boyname = boyname == null ? null : boyname.trim();
     }
 
-    public int getUserCP() {
-        return userCP;
+    public Integer getUsercp() {
+        return usercp;
     }
 
-    public void setUserCP(int userCP) {
-        this.userCP = userCP;
+    public void setUsercp(Integer usercp) {
+        this.usercp = usercp;
     }
 
     @Override
     public String toString() {
-        return "Boys{" +
-                "u_id=" + u_id +
-                ", boyName='" + boyName + '\'' +
-                ", userCP=" + userCP +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(getClass().getSimpleName());
+        sb.append(" [");
+        sb.append("Hash = ").append(hashCode());
+        sb.append(", uId=").append(uId);
+        sb.append(", boyname=").append(boyname);
+        sb.append(", usercp=").append(usercp);
+        sb.append(", serialVersionUID=").append(serialVersionUID);
+        sb.append("]");
+        return sb.toString();
     }
 }

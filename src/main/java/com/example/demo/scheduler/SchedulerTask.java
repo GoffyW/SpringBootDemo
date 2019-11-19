@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @Author:Goffy
  */
-@Component
+//@Component
 public class SchedulerTask {
     private  final Logger logger = LoggerFactory.getLogger(this.getClass());
     private List<Integer> index = Arrays.asList(8*1000,3*1000,6*1000,2*1000,2*1000);

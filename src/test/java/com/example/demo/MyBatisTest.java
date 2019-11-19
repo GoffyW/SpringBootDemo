@@ -1,7 +1,5 @@
 package com.example.demo;
 
-import com.example.demo.bean.Boys;
-import com.example.demo.mapper.BoysMapper;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

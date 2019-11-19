@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.mapper.BoysMapper">
-  <resultMap id="BaseResultMap" type="com.example.demo.bean.Boys">
-    <id column="u_id" jdbcType="INTEGER" property="uId" />
-    <result column="boyName" jdbcType="VARCHAR" property="boyname" />
-    <result column="userCP" jdbcType="INTEGER" property="usercp" />
+<mapper namespace="com.example.demo.mapper.MemberMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.bean.Member">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,15 +64,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    u_id, boyName, userCP
+    id, `name`
   </sql>
-  <select id="selectByExample" parameterType="com.example.demo.bean.BoysExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.example.demo.bean.MemberExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from boys
+    from member
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -84,67 +83,56 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from boys
-    where u_id = #{uId,jdbcType=INTEGER}
+    from member
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from boys
-    where u_id = #{uId,jdbcType=INTEGER}
+    delete from member
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.bean.BoysExample">
-    delete from boys
+  <delete id="deleteByExample" parameterType="com.example.demo.bean.MemberExample">
+    delete from member
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.bean.Boys">
-    insert into boys (u_id, boyName, userCP
-      )
-    values (#{uId,jdbcType=INTEGER}, #{boyname,jdbcType=VARCHAR}, #{usercp,jdbcType=INTEGER}
-      )
+  <insert id="insert" parameterType="com.example.demo.bean.Member">
+    insert into member (id, `name`)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.bean.Boys">
-    insert into boys
+  <insert id="insertSelective" parameterType="com.example.demo.bean.Member">
+    insert into member
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="uId != null">
-        u_id,
+      <if test="id != null">
+        id,
       </if>
-      <if test="boyname != null">
-        boyName,
-      </if>
-      <if test="usercp != null">
-        userCP,
+      <if test="name != null">
+        `name`,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="uId != null">
-        #{uId,jdbcType=INTEGER},
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="boyname != null">
-        #{boyname,jdbcType=VARCHAR},
-      </if>
-      <if test="usercp != null">
-        #{usercp,jdbcType=INTEGER},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.bean.BoysExample" resultType="java.lang.Long">
-    select count(*) from boys
+  <select id="countByExample" parameterType="com.example.demo.bean.MemberExample" resultType="java.lang.Long">
+    select count(*) from member
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update boys
+    update member
     <set>
-      <if test="record.uId != null">
-        u_id = #{record.uId,jdbcType=INTEGER},
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.boyname != null">
-        boyName = #{record.boyname,jdbcType=VARCHAR},
-      </if>
-      <if test="record.usercp != null">
-        userCP = #{record.usercp,jdbcType=INTEGER},
+      <if test="record.name != null">
+        `name` = #{record.name,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -152,30 +140,25 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update boys
-    set u_id = #{record.uId,jdbcType=INTEGER},
-      boyName = #{record.boyname,jdbcType=VARCHAR},
-      userCP = #{record.usercp,jdbcType=INTEGER}
+    update member
+    set id = #{record.id,jdbcType=INTEGER},
+      `name` = #{record.name,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.bean.Boys">
-    update boys
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.bean.Member">
+    update member
     <set>
-      <if test="boyname != null">
-        boyName = #{boyname,jdbcType=VARCHAR},
-      </if>
-      <if test="usercp != null">
-        userCP = #{usercp,jdbcType=INTEGER},
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
       </if>
     </set>
-    where u_id = #{uId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.bean.Boys">
-    update boys
-    set boyName = #{boyname,jdbcType=VARCHAR},
-      userCP = #{usercp,jdbcType=INTEGER}
-    where u_id = #{uId,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.bean.Member">
+    update member
+    set `name` = #{name,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

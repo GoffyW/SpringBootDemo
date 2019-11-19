@@ -1,18 +1,30 @@
 package com.example.demo.mapper;
 
 import com.example.demo.bean.Boys;
-import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Service;
-
+import com.example.demo.bean.BoysExample;
 import java.util.List;
-@Mapper
-/**
- * @Author:Goffy
- */
+import org.apache.ibatis.annotations.Param;
+
 public interface BoysMapper {
-    /**
-     * 查询所有的男孩列表
-     * @return
-     */
-    List<Boys> queryBoysList();
+    long countByExample(BoysExample example);
+
+    int deleteByExample(BoysExample example);
+
+    int deleteByPrimaryKey(Integer uId);
+
+    int insert(Boys record);
+
+    int insertSelective(Boys record);
+
+    List<Boys> selectByExample(BoysExample example);
+
+    Boys selectByPrimaryKey(Integer uId);
+
+    int updateByExampleSelective(@Param("record") Boys record, @Param("example") BoysExample example);
+
+    int updateByExample(@Param("record") Boys record, @Param("example") BoysExample example);
+
+    int updateByPrimaryKeySelective(Boys record);
+
+    int updateByPrimaryKey(Boys record);
 }
