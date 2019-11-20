@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.bean.Boys;
-import com.example.demo.mapper.BoysMapper;
 import com.example.demo.service.BoysService;
 import com.example.demo.service.UserService;
 import com.example.demo.utils.ResponseBO;
@@ -36,16 +35,18 @@ public class BoysController {
 
     /**
      * 更新操作
-     * @param boy
+     * @param users
      * @return
      */
     @PostMapping("/update")
     public ResponseBO updataBoys(@RequestBody JSONObject users){
         int i = userService.updateUser(users);
         if (i>0){
-            return ResponseBO.Builder.init().setCompleteCode(0).build();
+            return ResponseBO.Builder.init().setCompleteCode(1).setReasonMessage("修改成功").build();
         }
         return ResponseBO.responseFail("更新失败");
     }
+
+
 
 }

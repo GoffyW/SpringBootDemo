@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.mapper.BoysMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Test;
 import org.junit.runner.RunWith;

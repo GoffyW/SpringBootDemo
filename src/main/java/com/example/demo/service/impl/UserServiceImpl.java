@@ -5,12 +5,12 @@ import com.example.demo.bean.Member;
 import com.example.demo.mapper.MemberMapper;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 /**
  * @Author:Goffy
  */
-@Service
+@Component
 public class UserServiceImpl implements UserService {
     @Autowired
     private MemberMapper memberMapper;
