@@ -1,12 +1,19 @@
 package com.example.demo.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
+@ApiModel("男生实体")
 public class Boys implements Serializable {
+    @ApiModelProperty("用户id")
     private Integer uId;
 
+    @ApiModelProperty("男生姓名")
     private String boyname;
 
+    @ApiModelProperty("关联cp")
     private Integer usercp;
 
     private static final long serialVersionUID = 1L;
