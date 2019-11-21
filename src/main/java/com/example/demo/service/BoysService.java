@@ -10,6 +10,7 @@ import java.util.List;
 public interface BoysService {
     /**
      * 查询全部
+     * @return
      */
     List<Boys> getAllBoys();
 
