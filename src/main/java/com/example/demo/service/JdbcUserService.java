@@ -29,7 +29,7 @@ public class JdbcUserService {
      * 查询全部用户s
      * @return
      */
-    @Cacheable(cacheNames = "user.service.all")
+    //@Cacheable(cacheNames = "user.service.all")
     public List<UserEntity> getAll(){
         return userRepository.findAll();
     }
