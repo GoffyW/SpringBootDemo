@@ -59,9 +59,13 @@ spring:
         show_sql: true
         format_sql: true
 
+
+  application:
+    name: spring-boot-redis
   redis:
     host: 127.0.0.1
     port: 6379
+
 
 mybatis:
   type-aliases-package: com.example.demo.bean

@@ -1,13 +1,14 @@
 package com.example.demo.bean;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * @Author:Goffy
  */
 @Entity
 @Table(name = "t_user")
-public class UserEntity {
+public class UserEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "t_id")
@@ -49,5 +50,15 @@ public class UserEntity {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", address='" + address + '\'' +
+                '}';
     }
 }
