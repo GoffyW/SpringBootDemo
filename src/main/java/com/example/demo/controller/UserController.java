@@ -5,9 +5,7 @@ import com.example.demo.jpa.UserJPA;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -52,5 +50,26 @@ public class UserController {
         return userJPA.findAll();
     }
 
+    @RequestMapping("/add")
+    public String  add(){
+        UserEntity userEntity = new UserEntity();
+        userEntity.setName("oNeal");
+        userEntity.setAge(50);
+        userEntity.setAddress("los");
+        userJPA.save(userEntity);
+        return "用户信息添加成功";
+    }
 
+    @RequestMapping("/delete/{userId}")
+    public String deleteE(@PathVariable("userId") Long userId){
+        UserEntity userEntity = new UserEntity();
+        userEntity.setId(userId);
+        userJPA.delete(userEntity);
+        return "删除用户成功";
+    }
+
+    @RequestMapping("age")
+    public List<UserEntity> age(){
+        return userJPA.nativeQuery(30);
+    }
 }
