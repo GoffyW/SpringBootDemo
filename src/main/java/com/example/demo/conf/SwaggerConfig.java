@@ -2,6 +2,7 @@ package com.example.demo.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -22,22 +23,17 @@ public class SwaggerConfig {
     @Bean
     public Docket api(){
         return new Docket(DocumentationType.SWAGGER_2)
+                .pathMapping("/")
                 .select()
-                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.basePackage("com.example.demo.controller"))
                 .paths(PathSelectors.any())
-                .build();
+                .build().apiInfo(new ApiInfoBuilder()
+                        .title("SpringBoot整合Swagger")
+                        .description("SpringBoot整合Swagger，详细信息......")
+                        .version("9.0")
+                        .contact(new Contact("Contact","google.com","aaa@gmail.com"))
+                        .license("The Apache License")
+                        .licenseUrl("http://www.baidu.com")
+                        .build());
     }
-    @Bean
-    public ApiInfo apiInfo(){
-        return new ApiInfo("SpringBoot项目集成Swagger2","练习demo","V1.0.0",
-                "Terms of service",
-                new Contact("名字想好没",
-                        "https://itweknow.cn",
-                        "gancy.programmer@gmail.com"),
-                        "Apache",
-                        "http://www.apache.org/",
-                        Collections.emptyList()
-        );
-    }
-
 }

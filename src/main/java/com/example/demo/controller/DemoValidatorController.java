@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.bean.DemoValidatorEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.validation.BindingResult;

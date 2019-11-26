@@ -1,8 +1,8 @@
 spring:
   profiles:
-    active: prod
-  main:
-    allow-bean-definition-overriding: true
+    active: dev
+#  main:
+#    allow-bean-definition-overriding: true
 #  datasource:
 #    druid:
 #      type: com.alibaba.druid.pool.DruidDataSource
@@ -30,10 +30,9 @@ spring:
 #      test-while-idle: true
 #      test-on-borrow: false
 #      test-on-return: false
-#    main:
-#      allow-bean-definition-overriding: true
 
 
+#
 #  Jpa:
 #    properties:
 #      hibernate:
@@ -49,7 +48,7 @@ spring:
 #    port: 6379
 
 
-
+#
 #mybatis:
 #  type-aliases-package: com.example.demo.bean
 #  mapper-locations:

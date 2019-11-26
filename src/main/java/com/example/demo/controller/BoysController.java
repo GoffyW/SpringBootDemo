@@ -6,6 +6,8 @@ import com.example.demo.service.BoysService;
 import com.example.demo.service.UserService;
 import com.example.demo.utils.ResponseBO;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,8 +32,8 @@ public class BoysController {
      * 查询所有的男孩
      * @return
      */
-    @ApiOperation("查询所有数据")
     @GetMapping("/queryBoysList")
+    @ApiOperation("查询所有数据")
     public List<Boys> queryBoysList(){
         List<Boys> lists = boysService.getAllBoys();
         return lists;
@@ -42,8 +44,8 @@ public class BoysController {
      * @param users
      * @return
      */
-    @ApiOperation("更新数据")
     @PostMapping("/update")
+    @ApiOperation("更新数据")
     public ResponseBO updataBoys(@RequestBody JSONObject users){
         int i = userService.updateUser(users);
         if (i>0){
@@ -51,7 +53,4 @@ public class BoysController {
         }
         return ResponseBO.responseFail("更新失败");
     }
-
-
-
 }

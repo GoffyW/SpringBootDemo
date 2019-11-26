@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * @Author:Goffy
  */
 @Configuration
-public class DruidConfigfiguration {
+public class DruidConfiguration {
     @Bean
     public ServletRegistrationBean statViewServlet(){
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(),"/druid/*");
