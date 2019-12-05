@@ -30,7 +30,7 @@ public class BoysController {
 
     /**
      * 查询所有的男孩
-     * @return
+     * @returne
      */
     @GetMapping("/queryBoysList")
     @ApiOperation("查询所有数据")
