@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.bean.UserEntity;
 import com.example.demo.jpa.UserJPA;
+import com.example.demo.result.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +70,8 @@ public class UserController {
     }
 
     @RequestMapping("age")
-    public List<UserEntity> age(){
-        return userJPA.nativeQuery(30);
+    public Result age(){
+        List<UserEntity> userEntities = userJPA.nativeQuery(30);
+        return new Result(1,"成功",userEntities);
     }
 }
