@@ -12,11 +12,11 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class UserServiceImpl implements UserService {
-    @Autowired
+/*    @Autowired
     private MemberMapper memberMapper;
     @Override
     public int updateUser(JSONObject users) {
         Member member = users.toJavaObject(Member.class);
         return memberMapper.updateByPrimaryKeySelective(member);
-    }
+    }*/
 }

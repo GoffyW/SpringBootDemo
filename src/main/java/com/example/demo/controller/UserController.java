@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.bean.UserEntity;
 import com.example.demo.jpa.UserJPA;
+import com.example.demo.pojo.User;
 import com.example.demo.result.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -74,4 +75,15 @@ public class UserController {
         List<UserEntity> userEntities = userJPA.nativeQuery(30);
         return new Result(1,"成功",userEntities);
     }
+
+    /**
+     *
+     * @return
+     */
+    @RequestMapping("testParam")
+    public User getParam(@RequestBody User user){
+        return user;
+
+    }
+
 }

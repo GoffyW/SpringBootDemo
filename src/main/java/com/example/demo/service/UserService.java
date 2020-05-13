@@ -15,6 +15,6 @@ public interface UserService {
      * @param users
      * @return
      */
-    int updateUser(JSONObject users);
+    /*int updateUser(JSONObject users);*/
 
 }
