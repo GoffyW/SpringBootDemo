@@ -30,5 +30,4 @@ build/
 ### VS Code ###
 .vscode/
 .mvn/
-src/test/*
 src/main/java/com/example/demo/dbconfig/
